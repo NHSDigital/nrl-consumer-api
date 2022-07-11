@@ -1,0 +1,4 @@
+variables:
+  service_name: nrl-consumer-api
+  short_service_name: nca
+  service_base_path: nrl-consumer-api
