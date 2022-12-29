@@ -42,7 +42,6 @@
     </HTTPTargetConnection>
   -->
   <HTTPTargetConnection>
-    <URL>http://mocktarget.apigee.net</URL>
       <SSLInfo>
           <Enabled>true</Enabled>
       </SSLInfo>
