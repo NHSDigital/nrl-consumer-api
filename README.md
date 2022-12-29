@@ -191,3 +191,4 @@ Example using `nrl-consumer-api-pr-15` as the app:
 
 `pytest tests/api_tests.py::test_smoke --proxy-name="nrl-consumer-api-pr-15" --api-name=nrl-consumer-api`
 
+
