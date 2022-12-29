@@ -1,5 +1,5 @@
 [project]
-+name = "nrl-consumer-api"
+name = "nrl-consumer-api"
 
 [tool.poetry]
 name = "nrl-consumer-api"
