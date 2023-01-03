@@ -201,7 +201,7 @@ Then export the following env var:
 
 If you want to run the smoke tests against a particular product or app then you can set up the command like this:
 
-Example using for the current product deployed to `internal-dev`:
+Example using the current product deployed to `internal-dev`:
 
 `pytest tests/api_tests.py::test_smoke --proxy-name="nrl-consumer-api-internal-dev" --api-name=nrl-consumer-api`
 
