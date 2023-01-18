@@ -8,11 +8,12 @@
 
 //---- CHANGE AVAILABLE POINTER TYPES FOR EACH ORGANISATION HERE ----//
 const nrlPointers = {
-  RJ11: [
-    "https://snomed.info/ict|887701000000100",
-    "https://snomed.info/ict|861421000000109",
+  "Y05868": [
     "https://snomed.info/ict|736253002",
-  ],
+    "https://snomed.info/ict|1363501000000100",
+    "https://snomed.info/ict|887701000000100",
+    "https://snomed.info/ict|861421000000109"
+  ]
 };
 //-------------------------------------------------------------------//
 
