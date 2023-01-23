@@ -1,7 +1,7 @@
 /* 
  * This JS has been added to rewrite the path 
  *  from /FHIR/R4/xxx
- *  to /production/xxx
+ *  to /consumer/xxx
  *
  * We are required to do this because we are using the AWS Auto Generated 
  * hostnames for AWS API Gateway and the resulting URL then contains the stage
@@ -13,7 +13,7 @@
  */
 
 proxyPathsuffix    = context.getVariable("proxy.pathsuffix");               // -> /FHIR/R4/DocumentReference
-targetPathsuffix   = proxyPathsuffix.replace("/FHIR/R4", "/production");    // -> /production/DocumentReference
+targetPathsuffix   = proxyPathsuffix.replace("/FHIR/R4", "/consumer");      // -> /consumer/DocumentReference
 
 // If we don't set this then it will add the "/FHIR/R4/DocumentReference"
 context.setVariable("target.copy.pathsuffix", false);
