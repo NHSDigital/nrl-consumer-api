@@ -198,7 +198,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "https://sandbox.api.service.nhs.uk/immunisation-history",
+			"value": "https://sandbox.api.service.nhs.uk/nrl-consumer-api",
 			"type": "string"
 		}
 	]
