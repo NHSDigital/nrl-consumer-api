@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "f5ef4f32-e560-4455-bb30-a81a71ea6445",
+		"name": "National Record Locator Consumer Sandbox",
+		"description": "Sandbox example requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read Pointer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "nhsd-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "x-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation-ODS",
+						"value": "Y05868",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "version=1.0",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "auth",
+						"type": "text"
+					},
+					{
+						"key": "x-request-id",
+						"value": "read-pointer-test",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference/Y05868-1234567892",
+					"protocol": "https",
+					"host": ["sandbox", "api", "service", "nhs", "uk"],
+					"path": [
+						"nrl-consumer-api",
+						"FHIR",
+						"R4",
+						"DocumentReference",
+						"Y05868-1234567892"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Pointer",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "nhsd-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "x-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation-ODS",
+						"value": "Y05868",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "version=1.0",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "auth",
+						"type": "text"
+					},
+					{
+						"key": "x-request-id",
+						"value": "search-pointer-test",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference?subject=https://fhir.nhs.uk/Id/nhs-number%7C4409815415",
+					"protocol": "https",
+					"host": ["sandbox", "api", "service", "nhs", "uk"],
+					"path": ["nrl-consumer-api", "FHIR", "R4", "DocumentReference"],
+					"query": [
+						{
+							"key": "subject",
+							"value": "https://fhir.nhs.uk/Id/nhs-number%7C4409815415"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Pointer - POST method",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "nhsd-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "x-correlation-id",
+						"value": "nrl-consumer-api-sandbox",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation-ODS",
+						"value": "Y05868",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "version=1.0",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "auth",
+						"type": "text"
+					},
+					{
+						"key": "x-request-id",
+						"value": "search-pointer-test-via-post",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\":\"https://fhir.nhs.uk/Id/nhs-number|4409815415\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference/_search",
+					"protocol": "https",
+					"host": ["sandbox", "api", "service", "nhs", "uk"],
+					"path": [
+						"nrl-consumer-api",
+						"FHIR",
+						"R4",
+						"DocumentReference",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://sandbox.api.service.nhs.uk/nrl-consumer-api",
+			"type": "string"
+		}
+	]
+}
