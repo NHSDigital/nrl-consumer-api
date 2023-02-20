@@ -174,7 +174,7 @@ paths:
             schema:
               type: object
               properties: {}
-          application/json:
+          application/fhir+json:
             schema:
               $ref: "#/components/schemas/RequestParams"
       responses:
