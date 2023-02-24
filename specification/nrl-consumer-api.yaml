@@ -153,6 +153,8 @@ paths:
         - $ref: "#/components/parameters/custodian"
         - $ref: "#/components/parameters/type"
         - $ref: "#/components/parameters/odsCode"
+        - $ref: '#/components/parameters/requestId'
+        - $ref: '#/components/parameters/correlationId'
       responses:
         "200":
           description: Search DocumentReference operation successful
@@ -160,6 +162,11 @@ paths:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/Bundle"
+          headers:
+            X-Correlation-Id:
+              $ref: '#/components/headers/X-Correlation-Id'
+            X-Request-Id:
+              $ref: '#/components/headers/X-Request-Id'
   /DocumentReference/_search:
     post:
       tags:
@@ -168,6 +175,8 @@ paths:
       operationId: searchPostDocumentReference
       parameters:
         - $ref: "#/components/parameters/odsCode"
+        - $ref: '#/components/parameters/requestId'
+        - $ref: '#/components/parameters/correlationId'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -184,6 +193,11 @@ paths:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/Bundle"
+          headers:
+            X-Correlation-Id:
+              $ref: '#/components/headers/X-Correlation-Id'
+            X-Request-Id:
+              $ref: '#/components/headers/X-Request-Id'
   /DocumentReference/{id}:
     get:
       tags:
@@ -193,6 +207,8 @@ paths:
       parameters:
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/odsCode"
+        - $ref: '#/components/parameters/requestId'
+        - $ref: '#/components/parameters/correlationId'
       responses:
         "200":
           description: Read DocumentReference operation successful
@@ -200,6 +216,11 @@ paths:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/DocumentReference"
+          headers:
+            X-Correlation-Id:
+              $ref: '#/components/headers/X-Correlation-Id'
+            X-Request-Id:
+              $ref: '#/components/headers/X-Request-Id'
 components:
   requestBodies:
     DocumentReference:
@@ -863,6 +884,13 @@ components:
       pattern: ^https\:\/\/snomed\.info\/sct\|(\d+)
     RequestHeaderOdsCode:
       type: string
+    RequestId:
+      type: string
+      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+      example: 60E0B220-8136-4CA5-AE46-1D97EF59D068
+    CorrelationID:
+      type: string
+      example: 11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA
   securitySchemes: {}
   parameters:
     id:
@@ -895,6 +923,30 @@ components:
       schema:
         $ref: "#/components/schemas/RequestHeaderOdsCode"
       required: true
+    requestId:
+      name: X-Request-ID
+      description: |
+        A globally unique identifier (GUID) for the request, which we use to de-duplicate repeated requests and to trace the request if you contact our helpdesk.
+
+        Must be a universally unique identifier (UUID) (ideally version 4).
+
+        Mirrored back in a response header.
+
+        If you re-send a failed request, use the same value in this header.
+      in: header
+      required: false
+      schema:
+        $ref: "#/components/schemas/RequestId"
+    correlationId:
+      name: X-Correlation-ID
+      description: |
+        An optional ID which you can use to track transactions across multiple systems. It can take any value, but we recommend avoiding `.` characters.
+
+        Mirrored back in a response header.
+      in: header
+      required: false
+      schema:
+        $ref: "#/components/schemas/CorrelationID"
   responses:
     Success:
       description: Success Response
@@ -908,3 +960,17 @@ components:
         application/fhir+json:
           schema:
             $ref: "#/components/schemas/OperationOutcome"
+  headers:
+    X-Correlation-Id:
+      schema:
+        type: string
+        example: 11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA
+        description: |
+          The X-Correlation-ID from the request header, if supplied, mirrored back.
+    X-Request-Id:
+      schema:
+        type: string
+        pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+        example: 60E0B220-8136-4CA5-AE46-1D97EF59D068
+        description: |
+          The X-Request-ID from the request header, if supplied, mirrored back.
