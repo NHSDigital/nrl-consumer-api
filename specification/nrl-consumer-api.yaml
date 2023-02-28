@@ -181,7 +181,7 @@ paths:
                       docStatus: preliminary
                       type:
                         coding:
-                          - system: https://snomed.info/ict
+                          - system: https://snomed.info/sct
                             code: "736253002"
                             display: Mental health crisis plan
                       category:
@@ -294,7 +294,7 @@ paths:
                       docStatus: final
                       type:
                         coding:
-                          - system: https://snomed.info/ict
+                          - system: https://snomed.info/sct
                             code: "736253002"
                             display: Mental Health Crisis Plan
                       category:
@@ -342,7 +342,7 @@ paths:
                               value: Encounter/4409815415
                         event:
                           - coding:
-                              - system: https://snomed.info/ict
+                              - system: https://snomed.info/sct
                                 code: "861421000000109"
                                 display: End of life care coordination summary
                         period:
@@ -385,7 +385,7 @@ paths:
                 docStatus: final
                 type:
                   coding:
-                    - system: https://snomed.info/ict
+                    - system: https://snomed.info/sct
                       code: "887701000000100"
                       display: Emergency health care plan
                 category:
@@ -1109,7 +1109,7 @@ components:
     RequestQueryType:
       type: string
       pattern: ^https\:\/\/snomed\.info\/sct\|(\d+)
-      example: "https://snomed.info/ict|736253002"
+      example: "https://snomed.info/sct|736253002"
     RequestHeaderOdsCode:
       type: string
   securitySchemes: {}
@@ -1164,19 +1164,19 @@ components:
       examples:
         SNOMED_CODES_MENTAL_HEALTH_CRISIS_PLAN:
           summary: Mental Health Crisis Plan
-          value: https://snomed.info/ict|736253002
+          value: https://snomed.info/sct|736253002
         SNOMED_CODES_EMERGENCY_HEALTH_CARE_PLAN:
           summary: Emergency Healthcare Plan
-          value: https://snomed.info/ict|887701000000100
+          value: https://snomed.info/sct|887701000000100
         SNOMED_CODES_END_OF_LIFE_CARE_COORDINATION_SUMMARY:
           summary: End of Life Care Coordination Summary
-          value: https://snomed.info/ict|861421000000109
+          value: https://snomed.info/sct|861421000000109
         SNOMED_CODES_NATIONAL_EARLY_WARNING_SCORE_2:
           summary: National Early Warning Code 2
-          value: https://snomed.info/ict|1363501000000100
+          value: https://snomed.info/sct|1363501000000100
         invalid:
           summary: Unknown
-          value: https://snomed.info/ict|410970009
+          value: https://snomed.info/sct|410970009
     odsCode:
       name: NHSD-End-User-Organisation-ODS
       description: ODS Code for Organisation
