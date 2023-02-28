@@ -146,7 +146,7 @@ paths:
     get:
       tags:
         - NRLF Consumer
-      summary: Search for DocumentReference resources
+      summary: Search (GET)
       operationId: searchDocumentReference
       parameters:
         - $ref: "#/components/parameters/subject"
@@ -155,51 +155,65 @@ paths:
         - $ref: "#/components/parameters/odsCode"
       responses:
         "200":
-          description: Search DocumentReference operation successful
+          description: Search successful response
           content:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/Bundle"
+              example: |
+                {
+                  "TBC": true
+                }
+      description: |
+        Perform a Search using GET query string parameters
   /DocumentReference/_search:
     post:
       tags:
         - NRLF Consumer
-      summary: Search for DocumentReference resources
+      summary: Search (POST)
       operationId: searchPostDocumentReference
       parameters:
         - $ref: "#/components/parameters/odsCode"
       requestBody:
         content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties: {}
           application/json:
             schema:
               $ref: "#/components/schemas/RequestParams"
       responses:
         "200":
-          description: Search DocumentReference operation successful
+          description: Search successful response
           content:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/Bundle"
+              example: |
+                {
+                  "TBC": true
+                }
+      description: |
+        Same as above but a POST to avoid URL length limits
   /DocumentReference/{id}:
     get:
       tags:
         - NRLF Consumer
-      summary: Read a DocumentReference resource
+      summary: Read
       operationId: readDocumentReference
       parameters:
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/odsCode"
       responses:
         "200":
-          description: Read DocumentReference operation successful
+          description: Search successful response
           content:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/DocumentReference"
+              example: |
+                {
+                  "TBC": true
+                }
+      description: |
+        Read a single DocumentReference record
 components:
   requestBodies:
     DocumentReference:
@@ -872,22 +886,62 @@ components:
       description: logical identifier
       schema:
         $ref: "#/components/schemas/DocumentId"
+      examples:
+        valid:
+          summary: Valid
+          value: XYZ-1234567890
+        invalid:
+          summary: Unknown
+          value: XYZ-1234567890
     subject:
       name: subject.identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQuerySubject"
       required: true
+      examples:
+        valid_1:
+          summary: "Valid #1"
+          value: https://fhir.nhs.uk/Id/nhs-number|TBC
+        valid_2:
+          summary: "Valid #2"
+          value: https://fhir.nhs.uk/Id/nhs-number|TBC
+        invalid:
+          summary: Unknown
+          value: https://fhir.nhs.uk/Id/nhs-number|TBC
     custodian:
       name: custodian.identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQueryCustodian"
+      examples:
+        valid:
+          summary: Valid
+          value: https://fhir.nhs.uk/Id/ods-organization-code|TBC
+        invalid:
+          summary: Unknown
+          value: https://fhir.nhs.uk/Id/ods-organization-code|TBC
     type:
       name: type.identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQueryType"
+      examples:
+        SNOMED_CODES_MENTAL_HEALTH_CRISIS_PLAN:
+          summary: Mental Health Crisis Plan
+          value: https://snomed.info/ict|736253002
+        SNOMED_CODES_EMERGENCY_HEALTH_CARE_PLAN:
+          summary: Emergency Healthcare Plan
+          value: https://snomed.info/ict|887701000000100
+        SNOMED_CODES_END_OF_LIFE_CARE_COORDINATION_SUMMARY:
+          summary: End of Life Care Coordination Summary
+          value: https://snomed.info/ict|861421000000109
+        SNOMED_CODES_NATIONAL_EARLY_WARNING_SCORE_2:
+          summary: National Early Warning Code 2
+          value: https://snomed.info/ict|1363501000000100
+        invalid:
+          summary: Unknown
+          value: https://snomed.info/ict|410970009
     odsCode:
       name: NHSD-End-User-Organisation-ODS
       description: ODS Code for Organisation
@@ -895,6 +949,13 @@ components:
       schema:
         $ref: "#/components/schemas/RequestHeaderOdsCode"
       required: true
+      examples:
+        valid:
+          summary: Valid
+          value: https://fhir.nhs.uk/Id/ods-organization-code|TBC
+        invalid:
+          summary: Unknown
+          value: https://fhir.nhs.uk/Id/ods-organization-code|TBC
   responses:
     Success:
       description: Success Response
