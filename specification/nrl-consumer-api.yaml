@@ -1108,7 +1108,7 @@ components:
       example: "https://fhir.nhs.uk/Id/ods-organization-code|Y05868"
     RequestQueryType:
       type: string
-      pattern: ^https\:\/\/snomed\.info\/sct\|(\d+)
+      pattern: ^https\:\/\/snomed\.info\/sct\|(\d+)$
       example: "https://snomed.info/sct|736253002"
     RequestHeaderOdsCode:
       type: string
