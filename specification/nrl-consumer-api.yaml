@@ -185,10 +185,10 @@ paths:
                             code: "736253002"
                             display: Mental health crisis plan
                       category:
-                        coding:
-                          - system: http://loinc.org
-                            code: 34108-1
-                            display: Outpatient Note
+                        - coding:
+                            - system: http://loinc.org
+                              code: 34108-1
+                              display: Outpatient Note
                       subject:
                         identifier:
                           system: https://fhir.nhs.uk/Id/nhs-number
