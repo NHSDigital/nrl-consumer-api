@@ -10,15 +10,15 @@
 const nrlPointers = {
   // This is needed for Smoke tests
   "RJ11": [
-        "https://snomed.info/ict|887701000000100",
-        "https://snomed.info/ict|861421000000109",
+        "http://snomed.info/sct|887701000000100",
+        "http://snomed.info/sct|861421000000109",
   ],
   // This is needed for the Seed data
   "Y05868": [
-    "https://snomed.info/ict|736253002",
-    "https://snomed.info/ict|1363501000000100",
-    "https://snomed.info/ict|887701000000100",
-    "https://snomed.info/ict|861421000000109"
+    "http://snomed.info/sct|736253002",
+    "http://snomed.info/sct|1363501000000100",
+    "http://snomed.info/sct|887701000000100",
+    "http://snomed.info/sct|861421000000109"
   ]
 };
 //-------------------------------------------------------------------//
