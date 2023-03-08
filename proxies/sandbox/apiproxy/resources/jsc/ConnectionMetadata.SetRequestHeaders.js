@@ -8,18 +8,28 @@
 
 //---- CHANGE AVAILABLE POINTER TYPES FOR EACH ORGANISATION HERE ----//
 const nrlPointers = {
-  // This is needed for Smoke tests
+  // This one is needed for Smoke Tests
   "RJ11": [
-        "http://snomed.info/sct|887701000000100",
-        "http://snomed.info/sct|861421000000109",
+        "http://snomed.info/sct|736253001",
+        "http://snomed.info/sct|736253002"
   ],
-  // This is needed for the Seed data
+  // These ones are needed for the Seed data
   "Y05868": [
     "http://snomed.info/sct|736253002",
-    "http://snomed.info/sct|1363501000000100",
     "http://snomed.info/sct|887701000000100",
+    "http://snomed.info/sct|1363501000000100",
     "http://snomed.info/sct|861421000000109"
+  ],
+  "8J008": [
+    "http://snomed.info/sct|1363501000000100"
+  ],
+  "RY26A": [
+    "http://snomed.info/sct|861421000000109"
+  ],
+  "RM559":[
+    "http://snomed.info/sct|736253002"
   ]
+
 };
 //-------------------------------------------------------------------//
 
