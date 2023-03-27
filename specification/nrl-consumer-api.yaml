@@ -7,9 +7,10 @@ info:
   description: |
     ## Overview
 
-    The National Record Locator (NRL) enables organisations to share Patient data nationwide.  It acts as an Index, or
-    Directory, of patient data.  Rather than handling the data itself it shares pointers held in partner systems, using
-    the [FHIR R4 DocumentReference](http://hl7.org/fhir/documentreference.html) standard.
+    The National Record Locator (NRL) enables organisations to share patient data nationwide.  Rather than storing the
+    data itself, it is used to share pointers to the data, held in provider systems.  It acts as an index and not a data
+    repository.  Each document pointer is defined using the
+    [FHIR R4 DocumentReference](http://hl7.org/fhir/documentreference.html) standard.
 
     ![National Record Locator](https://raw.githubusercontent.com/NHSDigital/nrl-consumer-api/master/specification/nrl.png)
 
@@ -24,13 +25,19 @@ info:
     It can be used to store and publish pointers to patient data held in health systems across England and to look up
     where relevant patient data is held.
 
-    There is a growing list of health and social care organisations authorised to share records using NRL.
+    There is a growing list of health and social care organisations authorised to share records using NRL, and presently
+    the pointers are classified into the following types.
+
+    * [Mental Health Crisis Plan](http://snomed.info/sct/736253002)
+    * [Emergency Healthcare Plan](http://snomed.info/sct/887701000000100)
+    * [End of Life Care Coordination Summary](http://snomed.info/sct|861421000000109)
+    * [National Early Warning Code 2](http://snomed.info/sct|1363501000000100)
 
     ### As a Consumer
 
     * Search for pointers, restricted to a single Patient at a time
     * Read a specific pointer
-    * Operations are restricted to document types agreed during the on-boarding process
+    * Operations are restricted to document types agreed during the [onboarding](#api-description__onboarding) process
 
     ### What has changed?
 
@@ -39,9 +46,9 @@ info:
 
     * Upgraded from FHIR STU3 to R4.
     * Improved performance and scalability.
-    * Improved on-boarding experience.
+    * Improved onboarding experience.
     * Authenticated using [signed JWT](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/application-restricted-restful-apis-signed-jwt-authentication) rather than mTLS
-    * Greater flexibility, by wider support of the FHIR R4 DocumentReference resource.
+    * Greater flexibility, by wider support of the [FHIR R4 DocumentReference](http://hl7.org/fhir/documentreference.html) resource.
 
     ### Data availability, timing and quality
 
@@ -49,13 +56,9 @@ info:
 
     ## Who can use this API
 
-    This API:
+    This API can only be used where there is a legal basis to do so
 
-    * is only for use by patient-facing applications
-    * is only for non-clinical use
-    * can only be used where there is a legal basis to do so
-
-    You can not currently use this API to retrieve pointers for:
+    You cannot currently use this API to retrieve pointers for:
 
     * mental health crisis plans
     * end of life plans
@@ -66,7 +69,7 @@ info:
     Make sure you have a valid use case before you go too far with your development.
     To do this, [contact us](https://digital.nhs.uk/developer/help-and-support).
 
-    You must do this before you can go live (see ‘Onboarding’ below).
+    You must do this before you can go live (see ‘[Onboarding](#api-description__onboarding)’ below).
 
     ## API status and roadmap
 
@@ -152,13 +155,14 @@ info:
     ## Onboarding
 
     You need to get your software approved by us before it can go live with this API. We call this onboarding. The
-    onboarding process can sometimes be quite long, so it’s worth planning well ahead.
+    [on-boarding](#api-description__onboarding) process can sometimes be quite long, so it’s worth planning well ahead.
 
-    This API uses our online digital onboarding process.
+    This API uses our online digital [on-boarding](#api-description__onboarding) process.
 
     As part of this process, you need to demonstrate that you can manage risks and that your software conforms
     technically with the requirements for this API.
 
+    !!! TODO !!! Fix this hyperlink !!!
     Information on this page might impact the design of your software. For details, see [Onboarding support information](https://digital.nhs.uk/developer/api-catalogue/national-record-locator-consumer-api/onboarding-support-information).
 
     To get started, see [digital onboarding](https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding#using-the-digital-onboarding-portal).
@@ -295,7 +299,7 @@ paths:
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
         agreed during onboarding.  The results can also be filtered to return documents by a given `type` and/or created
-        by a given `custodian`.
+        by a given producer (`custodian`).
 
         This operation is also available as a http POST, which is the preferred method (see below).
   /DocumentReference/_search:
@@ -511,7 +515,7 @@ paths:
               $ref: "#/components/headers/RequestId"
       description: |
         Read a single document pointer by specifying the `DocumentReference.id`.  Note that you will only be able to
-        retrieve document pointers that have the `type` that was agreed during the [on-boarding](#Onboarding) process.
+        retrieve document pointers that have the `type` that was agreed during the [onboarding](#api-description__onboarding) process.
 components:
   requestBodies:
     DocumentReference:
