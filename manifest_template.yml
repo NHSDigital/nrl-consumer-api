@@ -107,6 +107,7 @@ apigee:
           - name: ratelimiting
             value:
               {{ NAME }}:
+                quota:
 {% if ENV.ratelimiting.quota.enabled | default(true) %}
                   enabled: true
                   limit: {{ ENV.ratelimiting.quota.limit | default(300) }}
