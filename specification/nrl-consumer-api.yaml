@@ -1216,16 +1216,16 @@ components:
     RequestParams:
       type: object
       properties:
-        subject.identifier:
+        patient:identifier:
           $ref: "#/components/schemas/RequestQuerySubject"
-        custodian.identifier:
+        custodian:identifier:
           $ref: "#/components/schemas/RequestQueryCustodian"
-        type.identifier:
+        type:identifier:
           $ref: "#/components/schemas/RequestQueryType"
-        next-page-token:
+        _next-page-token:
           $ref: "#/components/schemas/NextPageToken"
       required:
-        - subject.identifier
+        - patient:identifier
     RequestQuerySubject:
       type: string
       pattern: ^https\:\/\/fhir\.nhs\.uk\/Id\/nhs-number\|(\d+)$
@@ -1265,7 +1265,7 @@ components:
           summary: Unknown
           value: Y05861-1234567800
     subject:
-      name: subject.identifier
+      name: patient:identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQuerySubject"
@@ -1284,7 +1284,7 @@ components:
           summary: Unknown
           value: https://fhir.nhs.uk/Id/nhs-number|3495456001
     custodian:
-      name: custodian.identifier
+      name: custodian:identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQueryCustodian"
@@ -1299,7 +1299,7 @@ components:
           summary: Unknown
           value: https://fhir.nhs.uk/Id/ods-organization-code|XYZ
     type:
-      name: type.identifier
+      name: type:identifier
       in: query
       schema:
         $ref: "#/components/schemas/RequestQueryType"
@@ -1323,7 +1323,7 @@ components:
           summary: Unknown
           value: http://snomed.info/sct|410970009
     nextPageToken:
-      name: next-page-token
+      name: _next-page-token
       description: |
         A token that can be sent as either a query parameter or in the post body parameter to retrieve the next set of 20 records.
 
