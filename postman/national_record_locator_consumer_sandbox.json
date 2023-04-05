@@ -43,11 +43,11 @@
 					}
 				],
 				"url": {
-					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference/Y05868-1234567892",
+					"raw": "https://sandbox.api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference/Y05868-1234567892",
 					"protocol": "https",
 					"host": ["sandbox", "api", "service", "nhs", "uk"],
 					"path": [
-						"nrl-consumer-api",
+						"record-locator/consumer",
 						"FHIR",
 						"R4",
 						"DocumentReference",
@@ -99,10 +99,10 @@
 					}
 				],
 				"url": {
-					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference?subject=https://fhir.nhs.uk/Id/nhs-number%7C4409815415",
+					"raw": "https://sandbox.api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference?subject=https://fhir.nhs.uk/Id/nhs-number%7C4409815415",
 					"protocol": "https",
 					"host": ["sandbox", "api", "service", "nhs", "uk"],
-					"path": ["nrl-consumer-api", "FHIR", "R4", "DocumentReference"],
+					"path": ["record-locator/consumer", "FHIR", "R4", "DocumentReference"],
 					"query": [
 						{
 							"key": "subject",
@@ -164,11 +164,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://sandbox.api.service.nhs.uk/nrl-consumer-api/FHIR/R4/DocumentReference/_search",
+					"raw": "https://sandbox.api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference/_search",
 					"protocol": "https",
 					"host": ["sandbox", "api", "service", "nhs", "uk"],
 					"path": [
-						"nrl-consumer-api",
+						"record-locator/consumer",
 						"FHIR",
 						"R4",
 						"DocumentReference",
@@ -198,7 +198,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "https://sandbox.api.service.nhs.uk/nrl-consumer-api",
+			"value": "https://sandbox.api.service.nhs.uk/record-locator/consumer",
 			"type": "string"
 		}
 	]
