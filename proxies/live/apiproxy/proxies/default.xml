@@ -71,8 +71,13 @@
     <TargetEndpoint>nrl-consumer-api-target</TargetEndpoint>
   </RouteRule>
   <DefaultFaultRule>
+    <AlwaysEnforce>true</AlwaysEnforce>
+    <Step>
+      <Name>AssignMessage.AddCors</Name>
+    </Step>
     <Step>
       <Name>AssignMessage.Errors.CatchAllMessage</Name>
+      <Condition>(response.content NOT Like "*OperationOutcome*")</Condition>
     </Step>
   </DefaultFaultRule>
 </ProxyEndpoint>
