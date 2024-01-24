@@ -35,7 +35,7 @@ info:
     * [End of life care plan](http://snomed.info/sct/736373009)
     * [End of Life Care Coordination Summary](http://snomed.info/sct/861421000000109)
     * [Emergency Health Care Plans](http://snomed.info/sct/887701000000100)
-
+    * [Lloyd George record folder](http://snomed.info/sct|16521000000101)
 
     You can also retrieve booking and referal pointers however you can not currently do this by directly integrating with
     the National Record Locator, you must instead onboard to the [Booking and Referral - FHIR API](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir)
@@ -60,7 +60,6 @@ info:
     * authenticated using [signed JWT](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/application-restricted-restful-apis-signed-jwt-authentication) rather than mTLS.
     * greater flexibility, by wider support of the [FHIR R4 DocumentReference](https://hl7.org/fhir/R4/documentreference.html) resource.
     * the application only supports json type FHIR, not XML (which is also valid FHIR)
-
 
     ### Data availability, timing and quality
 
@@ -1543,6 +1542,9 @@ components:
         SNOMED_CODES_END_OF_LIFE_CARE_PLAN:
           summary: End of life care plan
           value: http://snomed.info/sct|736373009
+        SNOMED_CODES_LLOYD_GEORGE_RECORD_FOLDER:
+          summary: Lloyd George record folder
+          value: http://snomed.info/sct|16521000000101
         invalid:
           summary: Unknown
           value: http://snomed.info/sct|410970009
