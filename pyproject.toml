@@ -9,7 +9,7 @@ authors = []
 readme = 'README.md'
 license = "MIT"
 repository = "https://github.com/NHSDigital/nrl-consumer-api"
-homepage = ""
+homepage = "https://digital.nhs.uk/developer/api-catalogue/national-record-locator-fhir/v3/consumer"
 keywords = ["healthcare", "uk", "nhs"] #TODO add additional keywords
 
 
