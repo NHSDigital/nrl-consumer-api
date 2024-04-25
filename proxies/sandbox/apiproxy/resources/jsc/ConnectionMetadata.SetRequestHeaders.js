@@ -38,7 +38,7 @@ const nrlPointers = {
     "request.header.NHSD-End-User-Organisation-ODS"
   );
   if (!odsCode || odsCode.trim().length === 0) {
-    //This will trigger RaiseFault.400BadRequest.xml - see proxies/deafult.xml in the DefaultFaultRules
+    //This will trigger RaiseFault.400MissingODSHeader.xml - see proxies/default.xml in the DefaultFaultRules
     return;
   }
 
