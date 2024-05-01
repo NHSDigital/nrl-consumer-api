@@ -38,11 +38,19 @@ APIGEE_ENVIRONMENTS:
         enabled: false
       spikeArrest:
         enabled: false
-  # We use `internal-qa` rather than `ref`
-  # - name: ref
-  #   display_name: Reference
-  #   has_mock_auth: true
-  #   approval_type: auto
+  - name: ref
+    display_name: Ref
+    has_mock_auth: true
+    approval_type: auto
+    ratelimiting:
+      quota:
+        enabled: true
+        limit: 30000 # 500/s
+        interval: 1
+        timeunit: minute
+      spikeArrest:
+        enabled: true
+        ratelimit: '30000pm' # 500/s
   - name: sandbox
     display_name: Sandbox
     portal_visibility: false
