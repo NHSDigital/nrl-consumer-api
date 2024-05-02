@@ -46,10 +46,9 @@ extends:
         proxy_path: sandbox
         post_deploy:
           - template: ./templates/run-smoke-tests.yml
-      # We use `internal-qa` rather than `ref`
-      # - environment: ref
-      #   post_deploy:
-      #     - template: ./templates/run-smoke-tests.yml
+      - environment: ref
+        post_deploy:
+          - template: ./templates/run-smoke-tests.yml
       - environment: sandbox
         proxy_path: sandbox
         post_deploy:
