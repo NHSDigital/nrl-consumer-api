@@ -36,7 +36,7 @@
 
   if (enableAuthorizationLookup == "true") {
     enableAuthorizationLookup = true;
-  } else if (enableAuthorizationLookup === null) {
+  } else if (enableAuthorizationLookup === null || enableAuthorizationLookup == "false") {
     enableAuthorizationLookup = false;
   } else {
     //This will trigger RaiseFault.403NoPointers.xml - see targets/target.xml
