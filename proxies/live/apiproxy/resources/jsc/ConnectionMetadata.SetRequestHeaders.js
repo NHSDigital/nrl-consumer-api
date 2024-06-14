@@ -47,10 +47,7 @@
   // Read the associated `nrl-ods-<ods_code>` custom attribute from the APIGEE app
   var nrlPointerTypes = context.getVariable("app.nrl-ods-" + odsCode);
 
-  if (
-    (enableAuthorizationLookup === true && nrlPointerTypes) ||
-    (enableAuthorizationLookup === false && !nrlPointerTypes)
-  ) {
+  if ((enableAuthorizationLookup === false && !nrlPointerTypes)) {
     //This will trigger RaiseFault.403NoPointers.xml - see targets/target.xml
     return;
   }
