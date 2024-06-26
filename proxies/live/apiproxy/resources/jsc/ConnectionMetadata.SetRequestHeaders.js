@@ -46,6 +46,7 @@
   var pointerTypes = [];
   // Read the associated `nrl-ods-<ods_code>` custom attribute from the APIGEE app
   var nrlPointerTypes = context.getVariable("app.nrl-ods-" + odsCode);
+  var nrlAppID = context.getVariable("app.nrl-app-id");
 
   if ((enableAuthorizationLookup === false && !nrlPointerTypes)) {
     //This will trigger RaiseFault.403NoPointers.xml - see targets/target.xml
@@ -74,6 +75,7 @@
     "nrl.ods-code-extension": odsCodeExtension,
     "nrl.pointer-types": pointerTypes,
     "nrl.enable-authorization-lookup": enableAuthorizationLookup,
+    "nrl.app-id": nrlAppID
   };
   context.targetRequest.headers["NHSD-Connection-Metadata"] =
     connectionMetadata;
