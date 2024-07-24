@@ -1561,7 +1561,7 @@ components:
           value: http://snomed.info/sct/736366004
         SNOMED_CODES_TREATMENT_ESCALATION_PLAN:
           summary: Treatment escalation plan
-    *     value: http://snomed.info/sct|735324008
+          value: http://snomed.info/sct|735324008
         invalid:
           summary: Unknown
           value: http://snomed.info/sct|410970009
