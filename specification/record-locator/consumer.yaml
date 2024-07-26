@@ -1536,7 +1536,7 @@ components:
           summary: Mental health crisis plan
           value: http://snomed.info/sct|736253002
         SNOMED_CODES_EMERGENCY_HEALTH_CARE_PLAN:
-          summary: Emergency Healthcare Plan
+          summary: Emergency healthcare plan
           value: http://snomed.info/sct|887701000000100
         SNOMED_CODES_END_OF_LIFE_CARE_COORDINATION_SUMMARY:
           summary: End of life care coordination summary
