@@ -56,6 +56,7 @@ const nrlPointers = {
     "nrl.ods-code": odsCode,
     "nrl.ods-code-extension": odsCodeExtension,
     "nrl.pointer-types": nrlPointerTypes,
+    "nrl.app-id": "NRL-SANDBOX-APP"
   };
   
   context.targetRequest.headers["NHSD-Connection-Metadata"] =
