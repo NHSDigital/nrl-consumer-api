@@ -302,6 +302,7 @@ paths:
                       date: "2022-12-20T09:45:41+11:00"
                       author:
                         - identifier:
+                            system: https://fhir.nhs.uk/Id/ods-organization-code
                             value: Organization/Y05868
                       authenticator:
                         identifier:
@@ -457,6 +458,7 @@ paths:
                       date: "2022-12-21T10:45:41+11:00"
                       author:
                         - identifier:
+                            system: https://fhir.nhs.uk/Id/ods-organization-code
                             value: Organization/Y05868
                       authenticator:
                         identifier:
@@ -598,6 +600,7 @@ paths:
                 date: "2022-12-22T11:45:41+11:00"
                 author:
                   - identifier:
+                      system: https://fhir.nhs.uk/Id/ods-organization-code
                       value: Organization/Y05868
                 authenticator:
                   identifier:
