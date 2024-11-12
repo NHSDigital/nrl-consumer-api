@@ -302,7 +302,8 @@ paths:
                       date: "2022-12-20T09:45:41+11:00"
                       author:
                         - identifier:
-                            value: Practitioner/A985657ZA
+                            system: https://fhir.nhs.uk/Id/ods-organization-code
+                            value: Organization/Y05868
                       authenticator:
                         identifier:
                           value: Organization/Y05868
@@ -457,7 +458,8 @@ paths:
                       date: "2022-12-21T10:45:41+11:00"
                       author:
                         - identifier:
-                            value: Practitioner/A985657ZA
+                            system: https://fhir.nhs.uk/Id/ods-organization-code
+                            value: Organization/Y05868
                       authenticator:
                         identifier:
                           value: Organization/Y05868
@@ -598,7 +600,8 @@ paths:
                 date: "2022-12-22T11:45:41+11:00"
                 author:
                   - identifier:
-                      value: Practitioner/A985657ZA
+                      system: https://fhir.nhs.uk/Id/ods-organization-code
+                      value: Organization/Y05868
                 authenticator:
                   identifier:
                     value: Organization/Y05868
@@ -873,7 +876,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Reference"
-            description: Identifies who is responsible for adding the information to the document.
+            description: Identifies the Organisation or group who is responsible for adding the information to the document.
         authenticator:
           $ref: "#/components/schemas/Reference"
           description: Which person or organization authenticates that this document is valid.
