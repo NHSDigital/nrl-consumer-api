@@ -399,7 +399,7 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type` and/or created
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
         by a given producer (`custodian`).
 
         This operation is also available as a http POST, which is the preferred method (see below).
@@ -552,7 +552,7 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type` and/or created
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
         by a given `custodian`.
 
         This operation is also available as a http GET for convenience (see above), but POST is preferred for the
