@@ -1191,66 +1191,6 @@ components:
       required:
         - contentType
         - url
-    ContentStabilityExtension:
-      type: object
-      properties:
-        url:
-          type: string
-          enum:
-            - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability"
-        valueCodeableConcept:
-          type: object
-          properties:
-            coding:
-              type: array
-              items:
-                type: object
-                properties:
-                  system:
-                    type: string
-                    enum:
-                      - "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability"
-                  code:
-                    type: string
-                    enum: ["static", "dynamic"]
-                  display:
-                    type: string
-                    enum: ["Static", "Dynamic"]
-                required:
-                  - system
-                  - code
-                  - display
-              minItems: 1
-              maxItems: 1
-          required:
-            - coding
-      required:
-        - url
-        - valueCodeableConcept
-    NRLFormatCode:
-      type: object
-      properties:
-        system:
-          type: string
-          enum:
-            - "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode"
-          description: The system URL for the NRLF Format Code.
-        code:
-          type: string
-          enum:
-            - "urn:nhs-ic:record-contact"
-            - "urn:nhs-ic:unstructured"
-          description: The code representing the format of the document.
-        display:
-          type: string
-          enum:
-            - "Contact details (HTTP Unsecured)"
-            - "Unstructured Document"
-          description: The display text for the code.
-      required:
-        - system
-        - code
-        - display
     CodeableConcept:
       type: object
       properties:
@@ -1293,6 +1233,92 @@ components:
         userSelected:
           type: boolean
           description: Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays).
+    ContentStabilityExtension:
+      allOf:
+        - $ref: '#/components/schemas/Extension'
+        - type: object
+          properties:
+            url:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability"
+            valueCodeableConcept:
+              $ref: "#/components/schemas/ContentStabilityExtensionValueCodeableConcept"
+          required:
+            - url
+            - valueCodeableConcept
+    ContentStabilityExtension:
+      allOf:
+        - $ref: "#/components/schemas/Extension"
+        - type: object
+          properties:
+            url:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability"
+            valueCodeableConcept:
+              $ref: "#/components/schemas/ContentStabilityExtensionValueCodeableConcept"
+          required:
+            - url
+            - valueCodeableConcept
+    ContentStabilityExtensionValueCodeableConcept:
+      allOf:
+        - $ref: "#/components/schemas/CodeableConcept"
+        - type: object
+          properties:
+            coding:
+              type: array
+              items:
+                $ref: "#/components/schemas/ContentStabilityExtensionCoding"
+              minItems: 1
+              maxItems: 1
+          required:
+            - coding
+    ContentStabilityExtensionCoding:
+      allOf:
+        - $ref: "#/components/schemas/Coding"
+        - type: object
+          properties:
+            system:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability"
+            code:
+              type: string
+              enum: ["static", "dynamic"]
+            display:
+              type: string
+              enum: ["Static", "Dynamic"]
+          required:
+            - system
+            - code
+            - display
+    NRLFormatCode:
+      allOf:
+        - $ref: "#/components/schemas/Coding"
+        - type: object
+          properties:
+            system:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode"
+              description: The system URL for the NRLF Format Code.
+            code:
+              type: string
+              enum:
+                - "urn:nhs-ic:record-contact"
+                - "urn:nhs-ic:unstructured"
+              description: The code representing the format of the document.
+            display:
+              type: string
+              enum:
+                - "Contact details (HTTP Unsecured)"
+                - "Unstructured Document"
+              description: The display text for the code.
+          required:
+            - system
+            - code
+            - display
     Identifier:
       type: object
       properties:
