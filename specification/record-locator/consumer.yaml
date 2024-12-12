@@ -1233,20 +1233,16 @@ components:
         userSelected:
           type: boolean
           description: Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays).
-    ContentStabilityExtension:
-      allOf:
-        - $ref: '#/components/schemas/Extension'
-        - type: object
-          properties:
-            url:
-              type: string
-              enum:
-                - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability"
-            valueCodeableConcept:
-              $ref: "#/components/schemas/ContentStabilityExtensionValueCodeableConcept"
-          required:
-            - url
-            - valueCodeableConcept
+    Extension:
+      type: object
+      properties:
+        valueCodeableConcept:
+          $ref: "#/components/schemas/CodeableConcept"
+          description: A name which details the functional use for this link &ndash; see [http://www.iana.org/assignments/link&ndash;relations/link&ndash;relations.xhtml#link&ndash;relations&ndash;1](http://www.iana.org/assignments/link&ndash;relations/link&ndash;relations.xhtml#link&ndash;relations&ndash;1).
+        url:
+          type: string
+          pattern: \S*
+          description: The reference details for the link.
     ContentStabilityExtension:
       allOf:
         - $ref: "#/components/schemas/Extension"
