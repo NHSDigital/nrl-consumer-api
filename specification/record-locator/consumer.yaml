@@ -36,7 +36,7 @@ info:
     * [End of Life Care Coordination Summary](http://snomed.info/sct/861421000000109)
     * [Emergency health care plan](http://snomed.info/sct/887701000000100)
     * [Lloyd George record folder](http://snomed.info/sct/16521000000101)
-    * [Advanced care plan](http://snomed.info/sct/736366004)
+    * [Advance care plan](http://snomed.info/sct/736366004)
     * [Treatment escalation plan](http://snomed.info/sct/735324008)
     * [Summary record]("http://snomed.info/sct|824321000000109")
     * [Personalised Care and Support Plan]("http://snomed.info/sct|2181441000000107")
@@ -190,7 +190,7 @@ info:
 
     Right click the icon and save link as... to save the Postman collection to your device
 
-    [![Right click and save link as...](https://run.pstmn.io/button.svg)](https://github.com/NHSDigital/NRLF/raw/main/postman_collection.json)
+    [![Right click and save link as...](https://run.pstmn.io/button.svg)](https://github.com/NHSDigital/NRLF/raw/develop/postman_collection.json)
 
     ### Integration testing
 
@@ -390,8 +390,9 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
-        by a given producer (`custodian`).
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, and/or created
+        by a given producer (`custodian`). You can also filter by any number of categories using the `category` parameter,
+        if filtering by more than one category separate each by a comma e.g., `http://snomed.info/sct|734163000,http://snomed.info/sct|1102421000000108`.
 
         This operation is also available as a http POST, which is the preferred method (see below).
   /DocumentReference/_search:
@@ -539,8 +540,8 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
-        by a given `custodian`.
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`,
+        multiple categories using the `category` parameter, and/or created by a given `custodian`.
 
         This operation is also available as a http GET for convenience (see above), but POST is preferred for the
         following reasons.
@@ -1119,10 +1120,19 @@ components:
           $ref: "#/components/schemas/Attachment"
           description: The document or URL of the document along with critical metadata to prove content has integrity.
         format:
-          $ref: "#/components/schemas/Coding"
+          $ref: "#/components/schemas/NRLFormatCode"
           description: An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
+        extension:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContentStabilityExtension"
+            description: Additional extension for content stability.
+          minItems: 1
+          maxItems: 1
       required:
         - attachment
+        - format
+        - extension
     DocumentReferenceRelatesTo:
       type: object
       properties:
@@ -1179,6 +1189,9 @@ components:
           type: string
           pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
           description: The date that the attachment was first created.
+      required:
+        - contentType
+        - url
     CodeableConcept:
       type: object
       properties:
@@ -1221,6 +1234,88 @@ components:
         userSelected:
           type: boolean
           description: Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays).
+    Extension:
+      type: object
+      properties:
+        valueCodeableConcept:
+          $ref: "#/components/schemas/CodeableConcept"
+          description: A name which details the functional use for this link &ndash; see [http://www.iana.org/assignments/link&ndash;relations/link&ndash;relations.xhtml#link&ndash;relations&ndash;1](http://www.iana.org/assignments/link&ndash;relations/link&ndash;relations.xhtml#link&ndash;relations&ndash;1).
+        url:
+          type: string
+          pattern: \S*
+          description: The reference details for the link.
+    ContentStabilityExtension:
+      allOf:
+        - $ref: "#/components/schemas/Extension"
+        - type: object
+          properties:
+            url:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability"
+            valueCodeableConcept:
+              $ref: "#/components/schemas/ContentStabilityExtensionValueCodeableConcept"
+          required:
+            - url
+            - valueCodeableConcept
+    ContentStabilityExtensionValueCodeableConcept:
+      allOf:
+        - $ref: "#/components/schemas/CodeableConcept"
+        - type: object
+          properties:
+            coding:
+              type: array
+              items:
+                $ref: "#/components/schemas/ContentStabilityExtensionCoding"
+              minItems: 1
+              maxItems: 1
+          required:
+            - coding
+    ContentStabilityExtensionCoding:
+      allOf:
+        - $ref: "#/components/schemas/Coding"
+        - type: object
+          properties:
+            system:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability"
+            code:
+              type: string
+              enum: ["static", "dynamic"]
+            display:
+              type: string
+              enum: ["Static", "Dynamic"]
+          required:
+            - system
+            - code
+            - display
+    NRLFormatCode:
+      allOf:
+        - $ref: "#/components/schemas/Coding"
+        - type: object
+          properties:
+            system:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode"
+              description: The system URL for the NRLF Format Code.
+            code:
+              type: string
+              enum:
+                - "urn:nhs-ic:record-contact"
+                - "urn:nhs-ic:unstructured"
+              description: The code representing the format of the document.
+            display:
+              type: string
+              enum:
+                - "Contact details (HTTP Unsecured)"
+                - "Unstructured Document"
+              description: The display text for the code.
+          required:
+            - system
+            - code
+            - display
     Identifier:
       type: object
       properties:
@@ -1554,8 +1649,8 @@ components:
         SNOMED_CODES_LLOYD_GEORGE_RECORD_FOLDER:
           summary: Lloyd George record folder
           value: http://snomed.info/sct|16521000000101
-        SNOMED_CODES_ADVANCED_CARE_PLAN:
-          summary: Advanced care plan
+        SNOMED_CODES_ADVANCE_CARE_PLAN:
+          summary: Advance care plan
           value: http://snomed.info/sct|736366004
         SNOMED_CODES_TREATMENT_ESCALATION_PLAN:
           summary: Treatment escalation plan
