@@ -390,8 +390,9 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
-        by a given producer (`custodian`).
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, and/or created
+        by a given producer (`custodian`). You can also filter by any number of categories using the `category` parameter,
+        if filtering by more than one category separate each by a comma e.g., `http://snomed.info/sct|734163000,http://snomed.info/sct|1102421000000108`.
 
         This operation is also available as a http POST, which is the preferred method (see below).
   /DocumentReference/_search:
@@ -539,8 +540,8 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
-        agreed during onboarding.  The results can also be filtered to return documents by a given `type`, `category`, and/or created
-        by a given `custodian`.
+        agreed during onboarding.  The results can also be filtered to return documents by a given `type`,
+        multiple categories using the `category` parameter, and/or created by a given `custodian`.
 
         This operation is also available as a http GET for convenience (see above), but POST is preferred for the
         following reasons.
