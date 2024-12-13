@@ -843,7 +843,7 @@ components:
           description: The status of this document reference.
         docStatus:
           type: string
-          pattern: "[^\\s]+(\\s[^\\s]+)*"
+          pattern: "^(entered-in-error|amended|preliminary|final)$"
           description: The status of the underlying document.
         type:
           $ref: "#/components/schemas/CodeableConcept"
