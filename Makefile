@@ -30,6 +30,9 @@ publish: clean
 	mkdir -p build
 	npm run publish 2> /dev/null
 
+run:
+	sudo docker run -e SWAGGER_JSON=/swagger.json -v ./build/nrl-consumer-api.json:/swagger.json -p 8080:8080 docker.io/swaggerapi/swagger-ui
+
 #Runs build proxy script
 build-proxy:
 	scripts/build_proxy.sh
