@@ -88,8 +88,12 @@
   <DefaultFaultRule>
     <AlwaysEnforce>true</AlwaysEnforce>
     <Step>
-      <Name>AssignMessage.AddCors</Name>
+      <Name>AssignMessage.AddCorsPreflight</Name>
       <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+    </Step>
+    <Step>
+      <Name>AssignMessage.AddCors</Name>
+      <Condition>request.header.sec-fetch-site == "cross-site"</Condition>
     </Step>
     <Step>
       <Name>AssignMessage.Errors.CatchAllMessage</Name>
