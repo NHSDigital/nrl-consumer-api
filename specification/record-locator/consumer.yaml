@@ -92,7 +92,7 @@ info:
     or a system that uses an authentication method supported by
     [NHS Care NHS Care Identity Service 2 (NHS CIS2)](https://digital.nhs.uk/services/identity-and-access-management/nhs-care-identity-service-2).
 
-    You must do this before you can go live (see ‘[Onboarding](#api-description__onboarding)’ below).
+    You must do this before you can go live (see [Onboarding](#overview--onboarding) below).
 
     ## API status and roadmap
 
