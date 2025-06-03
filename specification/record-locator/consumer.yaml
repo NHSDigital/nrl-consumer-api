@@ -51,7 +51,7 @@ info:
 
     * search for pointers, restricted to a single Patient at a time
     * read a specific pointer
-    * operations are restricted to document types agreed during the [onboarding](#api-description__onboarding) process
+    * operations are restricted to document types agreed during the [onboarding](#overview--onboarding) process
 
     ### What has changed?
 
