@@ -91,7 +91,7 @@ info:
     or a system that uses an authentication method supported by
     [NHS Care NHS Care Identity Service 2 (NHS CIS2)](https://digital.nhs.uk/services/identity-and-access-management/nhs-care-identity-service-2).
 
-    You must do this before you can go live (see ‘[Onboarding](#api-description__onboarding)’ below).
+    You must do this before you can go live (see ‘[Onboarding](#overview--onboarding)’ below).
 
     ## API status and roadmap
 
@@ -657,7 +657,7 @@ paths:
                     diagnostics: "The requested document pointer cannot be read because it belongs to another organisation"
       description: |
         Read a single document pointer by specifying the `DocumentReference.id`.  Note that you will only be able to
-        retrieve document pointers that have the `type` that was agreed during the [onboarding](#api-description__onboarding) process.
+        retrieve document pointers that have the `type` that was agreed during the [onboarding](#overview--onboarding) process.
 components:
   requestBodies:
     DocumentReference:
@@ -953,7 +953,7 @@ components:
         value:
           type: string
           pattern: "[ \\r\\n\\t\\S]+"
-          description: The ODS code of the organisation.
+          description: The ODS code of the organisation. The author should represent the organisation which is responsible for the information in the document, while the custodian should represent the organisation responsible for managing and maintaining the pointer.
         period:
           $ref: "#/components/schemas/Period"
           description: Time period during which identifier is/was valid for use.
@@ -1183,12 +1183,14 @@ components:
               enum:
                 - "urn:nhs-ic:record-contact"
                 - "urn:nhs-ic:unstructured"
+                - "urn:nhs-ic:structured"
               description: The code representing the format of the document.
             display:
               type: string
               enum:
                 - "Contact details (HTTP Unsecured)"
                 - "Unstructured Document"
+                - "Structured Document"
               description: The display text for the code.
           required:
             - system
@@ -1503,7 +1505,7 @@ components:
         lastUpdated:
           type: string
           pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))
-          description: When the resource last changed &ndash; e.g. when the version changed.
+          description: When the resource last changed &ndash; this is maintained by the NRL. 
         source:
           type: string
           pattern: \S*
