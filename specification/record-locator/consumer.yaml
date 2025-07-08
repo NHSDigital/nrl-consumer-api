@@ -51,7 +51,7 @@ info:
 
     * search for pointers, restricted to a single Patient at a time
     * read a specific pointer
-    * operations are restricted to document types agreed during the [onboarding](#api-description__onboarding) process
+    * operations are restricted to document types agreed during the [onboarding](#overview--onboarding) process
 
     ### What has changed?
 
@@ -92,7 +92,7 @@ info:
     or a system that uses an authentication method supported by
     [NHS Care NHS Care Identity Service 2 (NHS CIS2)](https://digital.nhs.uk/services/identity-and-access-management/nhs-care-identity-service-2).
 
-    You must do this before you can go live (see ‘[Onboarding](#overview--onboarding)’ below).
+    You must do this before you can go live (see [Onboarding](#overview--onboarding) below).
 
     ## API status and roadmap
 
@@ -162,8 +162,6 @@ info:
     | NRL v3 API                | Source code for the core API and sandbox                  | [GitHub repo](https://github.com/NHSDigital/nrlf)                          |
     | NRL v3 Producer API       | Source code for the producer API proxy and specification. | [GitHub repo](https://github.com/NHSDigital/nrl-producer-api)              |
     | NRL v3 Consumer API       | Source code for the consumer API proxy and specification. | [GitHub repo](https://github.com/NHSDigital/nrl-consumer-api)              |
-    | Lambda Pipeline Package   | Source code for the lambda pipeline utility               | [GitHub repo](https://github.com/NHSDigital/nrlf-lambda-pipeline)          |
-    | Lambda Logging Package    | Source code for the lambda logging utility                | [GitHub repo](https://github.com/NHSDigital/nrlf-lambda-logging)           |
 
     We currently don't have any open source client libraries or sample code for this API. If you think this would be useful, you can [upvote the suggestion on our Interactive Product Backlog](https://nhs-digital-api-management.featureupvote.com/suggestions/107439/client-libraries-and-reference-implementations).
 
@@ -231,7 +229,7 @@ info:
 
     ## Change log
 
-    For details of how this API has changed over time, see the [change log](https://github.com/NHSDigital/NRLF/blob/main/CHANGELOG.md).
+    For details of how this API has changed over time, see the [release history](https://github.com/NHSDigital/nrl-consumer-api/releases).
   version: 1.0.0
   license:
     name: MIT
