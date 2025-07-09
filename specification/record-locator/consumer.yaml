@@ -553,9 +553,10 @@ paths:
         
         * documents of a given `type`
         * documents belonging to one or more categories
-        * a count of matching documents, by including `_summary: "count"`
         * documents created by a given `custodian`
 
+        To return only the count of the number of results, include `_summary: "count"` in the parameters in the request body.
+        
         This operation is also available as a http GET for convenience, but POST is preferred for the
         following reasons.
 
