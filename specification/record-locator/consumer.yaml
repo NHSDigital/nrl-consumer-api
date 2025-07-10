@@ -28,7 +28,8 @@ info:
     There is a growing list of health and social care organisations authorised to share records using NRL, and presently
     the pointers are classified into the following types:
 
-    | Category                  | Type                                                                    | snomed code                                                                | Retreival formats                        |
+    |
+    | Category                  | Type                                                                    | snomed code                                                                | Retrieval formats                        |
     |---------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------|------------------------------------------|
     | Care Plan                 | Mental health crisis plan                                               | [736253002](http://snomed.info/sct|736253002)                              | contact details & unstructured PDF - SSP |
     | Care Plan                 | ReSPECT (Recommended Summary Plan for Emergency Care and Treatment) form| [1363501000000100](http://snomed.info/sct|1363501000000100)                | contact details & unstructured PDF - SSP |
@@ -40,7 +41,7 @@ info:
     | Care Plan                 | Personalised Care and Support Plan                                      | [2181441000000107](http://snomed.info/sct|2181441000000107)                | contact details & unstructured PDF - SSP |
     | Observation               | Royal College of Physicians NEWS2 (National Early Warning Score 2) chart| [1363501000000100](http://snomed.info/sct|1363501000000100)                | contact details & unstructured PDF - SSP |
     |                           | Summary record                                                          | [824321000000109](http://snomed.info/sct|824321000000109)                  | unstructured PDF - SSP                   |
-    |                           | Lloyd George record folder                                              | [16521000000101](http://snomed.info/sct|16521000000101)                    | unstructured PDF - NDR retreival proxy   |
+    |                           | Lloyd George record folder                                              | [16521000000101](http://snomed.info/sct|16521000000101)                    | unstructured PDF - NDR retrieval proxy   |
     |                           | Appointment                                                             | [749001000000101](http://snomed.info/sct|749001000000101)                  |                                          |
 
   
@@ -240,15 +241,15 @@ info:
     *Document Content Read Permissions for your ASID
     *Internet Catbag Permissions for SSP (if accessing it over the internet for your ASID)
 
-If you have any questions on how to get an FQDN or how to generate a CSR, please email [ITOC](mailto:itoc.supportdesk@nhs.net). An example FQDN would be spine.example.record-locator.nhs.uk
+    If you have any questions on how to get an FQDN or how to generate a CSR, please email [ITOC](mailto:itoc.supportdesk@nhs.net). An example FQDN would be spine.example.record-locator.nhs.uk
 
-In order to get an ASID, please complete this [form](https://digital.nhs.uk/services/path-to-live-environments/path-to-live-forms/combined-endpoint-and-service-registration-request)
-You will need to tick "create an endpoint including certificate " in section 2, use FQDN in section 3 and section 4, tick 'CMA endpoint' in section 5 (manufacturer's details are not mandatory here), and leave sections 6 and 7 blank.
-You should receive an email with your ASID and generated Certificate upon completing this form.
+    In order to get an ASID, please complete this [form](https://digital.nhs.uk/services/path-to-live-environments/path-to-live-forms/combined-endpoint-and-service-registration-request)
+    You will need to tick "create an endpoint including certificate " in section 2, use FQDN in section 3 and section 4, tick 'CMA endpoint' in section 5 (manufacturer's details are not mandatory here), and leave sections 6 and 7 blank.
+    You should receive an email with your ASID and generated Certificate upon completing this form.
 
-Once you have done this, you will need to ask for the 'internet' Catbag and 'Document Content Read' interaction permissions to be added to your ASID. You can request these permissions by emailing [ITOC](mailto:itoc.supportdesk@nhs.net)
+    Once you have done this, you will need to ask for the 'internet' Catbag and 'Document Content Read' interaction permissions to be added to your ASID. You can request these permissions by emailing [ITOC](mailto:itoc.supportdesk@nhs.net)
 
-If you are a GP system supplier looking to onboard to retrieve 'Lloyd George Record Folder' pointers, then SSP will not be used. Instead, you will need to onboard to the National Data Repository (NDR) retrieval proxy.
+    If you are a GP system supplier looking to onboard to retrieve 'Lloyd George Record Folder' pointers, then SSP will not be used. Instead, you will need to onboard to the National Data Repository (NDR) retrieval proxy.
 
     ## Change log
 
@@ -312,7 +313,7 @@ paths:
                         coding:
                           - system: http://snomed.info/sct
                             code: "736253002"
-                            display: related api
+                            display: Mental health crisis plan
                       category:
                         - coding:
                             - system: http://loinc.org
@@ -458,7 +459,7 @@ paths:
                         coding:
                           - system: http://snomed.info/sct
                             code: "736253002"
-                            display: related api
+                            display: Mental health crisis plan
                       category:
                         - coding:
                             - system: http://loinc.org
