@@ -29,7 +29,7 @@ info:
     the pointers are classified into the following types:
 
     |
-    | Category                  | Type                                                                    | snomed code                                                                | Retrieval formats                        |
+    | Category                  | Type                                                                    | System code (snomed)                                                       | Retrieval formats                        |
     |---------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------|------------------------------------------|
     | Care Plan                 | Mental health crisis plan                                               | [736253002](http://snomed.info/sct|736253002)                              | contact details & unstructured PDF - SSP |
     | Care Plan                 | ReSPECT (Recommended Summary Plan for Emergency Care and Treatment) form| [1363501000000100](http://snomed.info/sct|1382601000000107)                | contact details & unstructured PDF - SSP |
