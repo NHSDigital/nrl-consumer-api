@@ -89,7 +89,7 @@ info:
     You can not use this API to retrieve documents, however you should be prepared to retrieve in PDF or Unstructured
     formats.
 
-    In order to retrieve a document, consumers must be able to interact with the National Record Locator and the appropriate retreival mechanism e.g. the Spine
+    In order to retrieve a document, consumers must be able to interact with the National Record Locator and the appropriate retrieval mechanism e.g. the Spine
     Secure Proxy (SSP).
 
     You can only use this API if your consuming application is only accessible using a valid NHS Smartcard for all users
@@ -234,9 +234,9 @@ info:
 
     ## Related APIs
 
-    NRL is primarily concerned with the registering and retrieval of pointers. As per the [registry/repository pattern] (https://digital.nhs.uk/developer/architecture/integration-patterns-book/patterns#registry-repository), following the retrieval of a pointer, the retrieval of an associated document/record may take place. In some circumstances information (or documents) are held in disparate systems. The registry-repository pattern resolves this by providing pointers with details that can be used to contact the organisation where the record is held, or directly retrieve the record from source, if authorised to do so. Most documents NRL pointers point to are retreivable using the Spine Secure Proxy [(SSP)](https://digital.nhs.uk/services/gp-connect/develop-gp-connect-services/integrate-with-spine/spine-secure-proxy). For example, all pointers of the category 'care plan' currently point to unstructured PDF documents, retreivable using SSP.
+    NRL is primarily concerned with the registering and retrieval of pointers. As per the [registry/repository pattern] (https://digital.nhs.uk/developer/architecture/integration-patterns-book/patterns#registry-repository), following the retrieval of a pointer, the retrieval of an associated document/record may take place. In some circumstances information (or documents) are held in disparate systems. The registry-repository pattern resolves this by providing pointers with details that can be used to contact the organisation where the record is held, or directly retrieve the record from source, if authorised to do so. Most documents NRL pointers point to are retrievable using the Spine Secure Proxy [(SSP)](https://digital.nhs.uk/services/gp-connect/develop-gp-connect-services/integrate-with-spine/spine-secure-proxy). For example, all pointers of the category 'care plan' currently point to unstructured PDF documents, retrievable using SSP.
     To connect to the Spine Secure Proxy (SSP), you will need:
-    *An ASID for your org
+    *An ASID for your organisation
     *A FQDN and CSR for your endpoint/application
     *Document Content Read Permissions for your ASID
     *Internet Catbag Permissions for SSP (if accessing it over the internet for your ASID)
@@ -247,7 +247,7 @@ info:
     You will need to tick "create an endpoint including certificate " in section 2, use FQDN in section 3 and section 4, tick 'CMA endpoint' in section 5 (manufacturer's details are not mandatory here), and leave sections 6 and 7 blank.
     You should receive an email with your ASID and generated Certificate upon completing this form.
 
-    Once you have done this, you will need to ask for the 'internet' Catbag and 'Document Content Read' interaction permissions to be added to your ASID. You can request these permissions by emailing [ITOC](mailto:itoc.supportdesk@nhs.net)
+    Once you have done this, you will need to ask for the 'internet' (if accessing it over the internet for your ASID) Catbag and 'Document Content Read' interaction permissions to be added to your ASID. You can request these permissions by emailing [ITOC](mailto:itoc.supportdesk@nhs.net)
 
     If you are a GP system supplier looking to onboard to retrieve 'Lloyd George Record Folder' pointers, then SSP will not be used. Instead, you will need to onboard to the National Data Repository (NDR) retrieval proxy.
 
