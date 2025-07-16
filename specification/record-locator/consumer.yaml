@@ -399,7 +399,7 @@ paths:
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
         agreed during onboarding.  The results can also be filtered to return documents of a given `type` or `category`, and/or created
-        by a given producer (`custodian`). To include multiple values for a parameter, separate each by a comma e.g. to see pointers of 
+        by a given producer (`custodian`). To include multiple values for a parameter, separate each by a comma e.g. to see pointers of
         Care Plan or Observation categories, use `http://snomed.info/sct|734163000,http://snomed.info/sct|1102421000000108`.
 
         This operation is also available as a http POST, which is the preferred method (see below).
@@ -549,14 +549,14 @@ paths:
       description: |
         Retrieve the document pointers for a single patient.  Your request is constrained by the document pointer types
         agreed during onboarding.  The results can also be filtered to return documents matching any combination of the
-        following criteria: 
-        
+        following criteria:
+
         * documents of a given `type`
         * documents belonging to one or more categories
         * documents created by a given `custodian`
 
         To return only the count of the number of results, include `_summary: "count"` in the parameters in the request body.
-        
+
         This operation is also available as a http GET for convenience, but POST is preferred for the
         following reasons.
 
@@ -1126,15 +1126,15 @@ components:
         code:
           type: string
           pattern: "[^\\s]+(\\s[^\\s]+)*"
-          description: The code value in the syntax defined by the system.  
+          description: The code value in the syntax defined by the system.
         display:
           type: string
           pattern: "[ \\r\\n\\t\\S]+"
-          description: The textual representation of the meaning of the code in the system, following the rules of the system. 
+          description: The textual representation of the meaning of the code in the system, following the rules of the system.
         userSelected:
           type: boolean
           description: Indicates whether this coding was chosen by a user directly &ndash; e.g. off a pick list of codes or displays.
-      required: 
+      required:
        - system
        - code
        - display
@@ -1187,7 +1187,7 @@ components:
             code:
               type: string
               enum: ["static", "dynamic"]
-              description: Indicates whether or not the content is dynamically generated at the time of the request. 
+              description: Indicates whether or not the content is dynamically generated at the time of the request.
             display:
               type: string
               enum: ["Static", "Dynamic"]
@@ -1532,7 +1532,7 @@ components:
         lastUpdated:
           type: string
           pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))
-          description: When the resource last changed &ndash; this is maintained by the NRL. 
+          description: When the resource last changed &ndash; this is maintained by the NRL.
         source:
           type: string
           pattern: \S*
