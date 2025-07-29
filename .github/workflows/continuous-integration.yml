@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - feature/axkr1-NRL-1544-automatic-build-artifacts  # TODO: revert to master after testing
 
 jobs:
   create_release:
@@ -34,6 +33,16 @@ jobs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
+      - name: Create release (master only)
+        id: create-release
+        uses: actions/create-release@v1
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.SPEC_VERSION }}
+          release_name: ${{ env.SPEC_VERSION }}
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -44,22 +53,6 @@ jobs:
 
       - name: Run publish
         run: make publish
-
-      # - name: Upload documentation artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: nrl-consumer-api-json
-      #     path: build/nrl-consumer-api.json
-
-      - name: Create release (master only)
-        id: create-release
-        uses: actions/create-release@v1
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: test-${{ env.SPEC_VERSION }}
-          release_name: test-${{ env.SPEC_VERSION }}
 
       - name: Upload documentation asset to release
         uses: actions/upload-release-asset@v1
