@@ -355,7 +355,7 @@ paths:
                             - attachment:
                                 contentType: application/pdf
                                 language: en-UK
-                                url: https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/MentalHealthCrisisPlan.pdf
+                                url: ssp://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/MentalHealthCrisisPlan.pdf
                                 title: Example Mental Health Crisis Plan electronic document
                                 creation: "2022-12-20T09:45:41+00:00"
                               format:
@@ -369,6 +369,12 @@ paths:
                                         code: static
                                         display: Static
                                   url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability
+                                - valueCodeableConcept:
+                                    coding:
+                                      - system: https://fhir.nhs.uk/England/CodeSystem/England-RetrievalMechanism
+                                        code: SSP
+                                        display: Spine Secure Proxy
+                                  url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England
                           context:
                             event:
                               - coding:
@@ -507,7 +513,7 @@ paths:
                             - attachment:
                                 contentType: application/pdf
                                 language: en-UK
-                                url: https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/MentalHealthCrisisPlan.pdf
+                                url: ssp://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/MentalHealthCrisisPlan.pdf
                                 title: Example Mental Health Crisis Plan electronic document
                                 creation: "2022-12-20T09:45:41+00:00"
                               format:
@@ -521,6 +527,12 @@ paths:
                                         code: static
                                         display: Static
                                   url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability
+                                - valueCodeableConcept:
+                                    coding:
+                                      - system: https://fhir.nhs.uk/England/CodeSystem/England-RetrievalMechanism
+                                        code: SSP
+                                        display: Spine Secure Proxy
+                                  url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England
                           context:
                             event:
                               - coding:
@@ -657,12 +669,25 @@ paths:
                   - attachment:
                       contentType: application/pdf
                       language: en-US
-                      url: https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/EmergencyHealthPlan.pdf
+                      url: ssp://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/EPAACS/EmergencyHealthPlan.pdf
                       creation: "2022-12-22T09:45:41+11:00"
                     format:
                       system: urn:oid:1.3.6.1.4.1.19376.1.2.3
                       code: urn:ihe:pcc:handp:2008
                       display: History and Physical Specification
+                    extension:
+                      - valueCodeableConcept:
+                          coding:
+                            - system: https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability,
+                              code: static
+                              display: Static
+                        url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability
+                      - valueCodeableConcept:
+                          coding:
+                            - system: https://fhir.nhs.uk/England/CodeSystem/England-RetrievalMechanism
+                              code: SSP
+                              display: Spine Secure Proxy
+                        url: https://fhir.nhs.uk/England/StructureDefinition/Extension-England
                 context:
                   event:
                     - coding:
@@ -949,8 +974,11 @@ components:
         extension:
           type: array
           items:
-            $ref: "#/components/schemas/ContentStabilityExtension"
-            description: Additional extension for content stability.
+            oneOf:
+              - $ref: "#/components/schemas/ContentStabilityExtension"
+              - $ref: "#/components/schemas/RetrievalMechanismExtension"
+              - $ref: "#/components/schemas/Extension"
+            description: Additional extensions which include Content Stability and Retrieval Mechanism.
           minItems: 1
           maxItems: 1
       required:
@@ -1228,6 +1256,53 @@ components:
             display:
               type: string
               enum: ["Static", "Dynamic"]
+          required:
+            - system
+            - code
+            - display
+    RetrievalMechanismExtension:
+      allOf:
+        - $ref: "#/components/schemas/Extension"
+        - type: object
+          properties:
+            url:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-RetrievalMechanism"
+            valueCodeableConcept:
+              $ref: "#/components/schemas/RetrievalMechanismExtensionValueCodeableConcept"
+          required:
+            - url
+            - valueCodeableConcept
+    RetrievalMechanismExtensionValueCodeableConcept:
+      allOf:
+        - $ref: "#/components/schemas/CodeableConcept"
+        - type: object
+          properties:
+            coding:
+              type: array
+              items:
+                $ref: "#/components/schemas/RetrievalMechanismExtensionCoding"
+              minItems: 1
+              maxItems: 1
+          required:
+            - coding
+    RetrievalMechanismExtensionCoding:
+      allOf:
+        - $ref: "#/components/schemas/Coding"
+        - type: object
+          properties:
+            system:
+              type: string
+              enum:
+                - "https://fhir.nhs.uk/England/CodeSystem/England-RetrievalMechanism"
+            code:
+              type: string
+              enum: ["SSP", "Direct", "NDR"]
+            display:
+              type: string
+              enum:
+                ["Spine Secure Proxy", "National Document Repository", "Direct"]
           required:
             - system
             - code
