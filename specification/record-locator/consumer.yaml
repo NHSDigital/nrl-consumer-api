@@ -1282,11 +1282,16 @@ components:
                 - "https://fhir.nhs.uk/England/CodeSystem/England-RetrievalMechanism"
             code:
               type: string
-              enum: ["SSP", "Direct", "LDR"]
+              enum: ["SSP", "Direct", "LDR", "InContext"]
             display:
               type: string
               enum:
-                ["Spine Secure Proxy", "Direct", "Large Document Repository"]
+                [
+                  "Spine Secure Proxy",
+                  "Direct",
+                  "Large Document Repository",
+                  "Direct using In-Context"
+                ]
           required:
             - system
             - code
