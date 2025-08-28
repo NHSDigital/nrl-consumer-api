@@ -1287,7 +1287,7 @@ components:
             display:
               type: string
               enum:
-                ["Spine Secure Proxy", "Large Document Repository", "Direct"]
+                ["Spine Secure Proxy", "Direct", "Large Document Repository"]
           required:
             - system
             - code
