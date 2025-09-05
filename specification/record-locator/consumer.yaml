@@ -248,7 +248,7 @@ info:
 
     Once you have done this, you will need to ask for the 'internet' (if accessing it over the internet for your ASID) Catbag and 'Document Content Read' interaction permissions to be added to your ASID. You can request these permissions by emailing [ITOC](mailto:itoc.supportdesk@nhs.net)
 
-    If you are a GP system supplier looking to onboard to retrieve 'Lloyd George Record Folder' pointers, then SSP will not be used. Instead, you will need to onboard to the Large Document Repository (LDR) retrieval proxy.
+    If you are a GP system supplier looking to onboard to retrieve 'Lloyd George Record Folder' pointers, then SSP will not be used. Instead, you will need to onboard to the Large Document Retrieval (LDR) retrieval proxy.
 
     ## Change log
 
@@ -1289,7 +1289,7 @@ components:
                 [
                   "Spine Secure Proxy",
                   "Direct",
-                  "Large Document Repository",
+                  "Large Document Retrieval",
                   "Direct using In-Context"
                 ]
           required:
