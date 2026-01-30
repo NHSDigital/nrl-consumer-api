@@ -2,4 +2,4 @@ variables:
   service_name: nrl-consumer-api
   short_service_name: nca
   service_base_path: record-locator/consumer
-  python_version: 3.9
+  python_version: 3.9.5
