@@ -416,7 +416,7 @@ paths:
                           subject:
                             identifier:
                               system: https://fhir.nhs.uk/Id/nhs-number
-                              value: "4409815415"
+                              value: "9000000009"
                           date: "2022-12-20T09:45:41+11:00"
                           author:
                             - identifier:
@@ -487,7 +487,7 @@ paths:
                     total: 1
                     link:
                       - relation: self
-                        url: "https://api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference?subject:identifier=https://fhir.nhs.uk/Id/nhs-number|4409815415&_summary=count"
+                        url: "https://api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference?subject:identifier=https://fhir.nhs.uk/Id/nhs-number|9000000009&_summary=count"
           headers:
             X-Correlation-Id:
               $ref: "#/components/headers/CorrelationId"
@@ -579,7 +579,7 @@ paths:
                           subject:
                             identifier:
                               system: https://fhir.nhs.uk/Id/nhs-number
-                              value: "4409815415"
+                              value: "9000000009"
                           date: "2022-12-20T09:45:41+11:00"
                           author:
                             - identifier:
@@ -645,7 +645,7 @@ paths:
                     total: 1
                     link:
                       - relation: self
-                        url: "https://api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference?subject:identifier=https://fhir.nhs.uk/Id/nhs-number|4409815415&_summary=count"
+                        url: "https://api.service.nhs.uk/record-locator/consumer/FHIR/R4/DocumentReference?subject:identifier=https://fhir.nhs.uk/Id/nhs-number|9000000009&_summary=count"
           headers:
             X-Correlation-Id:
               $ref: "#/components/headers/CorrelationId"
@@ -728,7 +728,7 @@ paths:
                 subject:
                   identifier:
                     system: https://fhir.nhs.uk/Id/nhs-number
-                    value: "4409815415"
+                    value: "9000000009"
                 date: "2022-12-22T11:45:41+11:00"
                 author:
                   - identifier:
@@ -1808,7 +1808,7 @@ components:
     RequestQuerySubject:
       type: string
       pattern: ^https\:\/\/fhir\.nhs\.uk\/Id\/nhs-number\|(\d+)$
-      example: "https://fhir.nhs.uk/Id/nhs-number|4409815415"
+      example: "https://fhir.nhs.uk/Id/nhs-number|9000000009"
     RequestQueryCustodian:
       type: string
       pattern: ^https\:\/\/fhir\.nhs\.uk\/Id\/ods-organization-code\|(\w+)$
@@ -1862,13 +1862,13 @@ components:
           value: ""
         valid_1:
           summary: "Valid #1"
-          value: https://fhir.nhs.uk/Id/nhs-number|4409815415
+          value: https://fhir.nhs.uk/Id/nhs-number|9000000009
         valid_2:
           summary: "Valid #2"
-          value: https://fhir.nhs.uk/Id/nhs-number|3495456481
+          value: https://fhir.nhs.uk/Id/nhs-number|9999999999
         invalid:
           summary: Unknown
-          value: https://fhir.nhs.uk/Id/nhs-number|3495456001
+          value: https://fhir.nhs.uk/Id/nhs-number|9495456001
     custodian:
       name: custodian:identifier
       in: query
