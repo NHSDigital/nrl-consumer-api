@@ -1,7 +1,5 @@
 # nrl-consumer-api
 
-![Build](https://github.com/NHSDigital/nrl-consumer-api/workflows/Build/badge.svg?branch=master)
-
 This is a specification for the *nrl-consumer-api* API.
 
 * `specification/` This [Open API Specification](https://swagger.io/docs/specification/about/) describes the endpoints, methods and messages exchanged by the API. Use it to generate interactive documentation; the contract between the API and its consumers.
