@@ -349,7 +349,7 @@ info:
     For a consumer to retrieve information via the SSP, the consumer MUST percent encode the content.attachment.url property from the NRL pointer and prefix it with the SSP server URL as follows: GET https://[proxy_server]/[percent_encoded_provider_endpoint_url]
     For example: GET https://[proxy_server]/https%3A%2F%2Fp1.nhs.uk%2FMentalHealthCrisisPlans%2Fda2b6e8a-3c8f-11e8-baae-6c3be5a609f5.
 
-    ##National Document Repository (NDR)
+    ## National Document Repository (NDR)
    
    The National Document Repository (NDR) is a central place where digital patient documents can be accessed and stored by frontline services. Use this API to access, store and manage digital Lloyd George patient records.
 
