@@ -307,7 +307,7 @@ info:
 
     Other pointers will point to 'dynamic' records. Records will usually be dynamic if the pointer is being provided by a proxy, and the record content is being co-authored by multiple end user organisations. In these cases, providers typically create a pointer when a record is created. Even when the record is updated, the pointer, including the retrieval URL on it, will remain the same. When a consumer retrieves the record, the provider will construct the record on the fly, with the most up to date information for the patient. This is also more common where a record exists for the life of the patient. 
 
-    ##Pointer maintenance
+    ## Pointer maintenance
     
     The overhead of pointer maintenance is dependent on whether the type of record being pointed to exists for the life of a patient, or has a shorter lifespan.
 
