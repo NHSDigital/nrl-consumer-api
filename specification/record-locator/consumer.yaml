@@ -434,7 +434,7 @@ info:
     | Trace ID | The consumer-generated ID of the retrieval request. This is only used for requests via the SSP and is for use in the Ssp-TraceID HTTP request header. |
     | User ID | The requesting_user from JWT. This is not mandatory where the request is completed as a non-interactive process. |
 
-    ##Frequently Asked Questions
+    ## Frequently Asked Questions
     
     Answers to frequently asked questions can be found on the [developer community](https://developer.community.nhs.uk/c/national-record-locator-nrl/52).
     
