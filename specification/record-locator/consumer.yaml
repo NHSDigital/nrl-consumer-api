@@ -262,13 +262,15 @@ info:
     
     Some pointers point you to records that are not digitally available to be retrieved from source. In these cases, links to websites with contact details for the record owner are provided. 
 
-    If records exist, NRL will signpost you to where you can find them and how to retrieve them. Often this information is supplemented with how to contact the organisation who authored them. You can then use another service to retrieve the record directly from source (from the organisation who holds the record). NRL is not involved in this transaction.
+    If records exist, NRL will signpost you to where you can find them and how to retrieve them. Often this information is supplemented with how to contact the organisation who authored them. 
+    You can then use another service to retrieve the record directly from source (from the organisation who holds the record). NRL is not involved in this transaction.
 
     Most NRL pointers point to unstructured PDFs that are retrievable via the Spine Secure Proxy. 
 
     Some unstructured PDFs that are too large to be sharded via the Spine Secure Proxy, are retrievable via the National Data Repository.
 
-    We are currently exploring supporting pointers to structured data. As part of this journey, we are piloting 'in-context launch' pointers, which users can use as a 'deep link' in to a record applications, like the Greater Manchester Care Record. 
+    We are currently exploring supporting pointers to structured data. As part of this journey, we are piloting 'in-context launch' pointers, which users can use as a 'deep link' in to a record application, 
+    like the Greater Manchester Care Record. 
 
     | Type and system code (snomed)                                                                                                                                           | Retrieval formats (what)                                                                                                                            | Retrieval mechanism (how)                                                                                                   |
     | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -304,15 +306,21 @@ info:
     
     In addition to the format that content is available in, the content of records generally falls into two 'stability' categories. 
 
-    Some pointers will point to 'static' records. Records will usually be static if the pointer has been provided by the authoring end user organisation. They can also be static in cases where a proxy has that data persisted in a data store. In these cases, providers typically create a pointer when a record is created, and update the pointer every time that record is updated. Static records are often records with a limited lifespan.
+    Some pointers will point to 'static' records. Records will usually be static if the pointer has been provided by the authoring end user organisation. 
+    They can also be static in cases where a proxy has that data persisted in a data store. In these cases, providers typically create a pointer when a record is created, 
+    and update the pointer every time that record is updated. Static records are often records with a limited lifespan.
 
-    Other pointers will point to 'dynamic' records. Records will usually be dynamic if the pointer is being provided by a proxy, and the record content is being co-authored by multiple end user organisations. In these cases, providers typically create a pointer when a record is created. Even when the record is updated, the pointer, including the retrieval URL on it, will remain the same. When a consumer retrieves the record, the provider will construct the record on the fly, with the most up to date information for the patient. This is also more common where a record exists for the life of the patient. 
+    Other pointers will point to 'dynamic' records. Records will usually be dynamic if the pointer is being provided by a proxy, and the record content is being co-authored 
+    by multiple end user organisations. In these cases, providers typically create a pointer when a record is created. Even when the record is updated, the pointer, including the retrieval URL on it, 
+    will remain the same. When a consumer retrieves the record, the provider will construct the record on the fly, with the most up to date information for the patient. 
+    This is also more common where a record exists for the life of the patient. 
 
     ## Pointer maintenance
     
     The overhead of pointer maintenance is dependent on whether the type of record being pointed to exists for the life of a patient, or has a shorter lifespan.
 
-    If the type of record will exist for the life of the patient (for example, clinical summaries), pointer maintenance is minimal. You will create a pointer when the patient is born, or enters a provider's area of responsibility. You will delete the pointer when the patient dies. 
+    If the type of record will exist for the life of the patient (for example, clinical summaries), pointer maintenance is minimal. You will create a pointer when the patient is born, 
+    or enters a provider's area of responsibility. You will delete the pointer when the patient dies. 
 
     If the type of record will exist for a limited lifespan (for example, care plans), providers may need to update their pointers as patients records become active and expire.
 
@@ -352,25 +360,25 @@ info:
 
     ## National Document Repository (NDR)
    
-   The National Document Repository (NDR) is a central place where digital patient documents can be accessed and stored by frontline services. Use this API to access, store and manage digital Lloyd George patient records.
+    The National Document Repository (NDR) is a central place where digital patient documents can be accessed and stored by frontline services. Use this API to access, store and manage digital Lloyd George patient records.
 
-   This API has different access modes, which give you access to different functionalities.
+    This API has different access modes, which give you access to different functionalities.
 
-   Depending on your access mode you can:
+    Depending on your access mode you can:
 
-   retrieve for a patient’s Lloyd George record
+    retrieve for a patient’s Lloyd George record
   
-   You can onboard to the National Document Repository via the Digital Onboarding Service.
+    You can onboard to the National Document Repository via the Digital Onboarding Service.
 
-   ## In-context launch
+    ## In-context launch
 
-   This retrieval pattern is currently in pilot. 
+    This retrieval pattern is currently in pilot. 
 
-   The first iteration will enable ambulance paramedics to launch the Greater Manchester Care Record from The National Care Record Service. NCRS will use CIS2 to generate an "In-Context Launch" specific access token that can be used to grant access to a third-party ECR (Electronic Care Record) system. The third-party ECR will verify the access token using CIS2 (system to system) and, if the requester has the appropriate role assigned to the access token (as an OAuth scope) allow the requester to view a patient's care record in the ECR application. This will allow users of NCRS to view patient records in third-party ECR systems.
+    The first iteration will enable ambulance paramedics to launch the Greater Manchester Care Record from The National Care Record Service. NCRS will use CIS2 to generate an "In-Context Launch" specific access token that can be used to grant access to a third-party ECR (Electronic Care Record) system. The third-party ECR will verify the access token using CIS2 (system to system) and, if the requester has the appropriate role assigned to the access token (as an OAuth scope) allow the requester to view a patient's care record in the ECR application. This will allow users of NCRS to view patient records in third-party ECR systems.
 
-   After the initial pilot in Greater Manchester, we will be exploring launching different types of record from different consuming applications,
+    After the initial pilot in Greater Manchester, we will be exploring launching different types of record from different consuming applications,
 
-   ## Auditing
+    ## Auditing
     
     This section outlines the audit and provenance requirements for data exchanged over NRL interfaces.
     All Consumers and Providers must maintain an audit trail of requests to and responses related to the retrieval of records and documents.
