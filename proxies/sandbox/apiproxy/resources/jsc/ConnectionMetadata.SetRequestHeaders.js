@@ -44,7 +44,7 @@ const nrlPointers = {
 
   var nrlPointerTypes = nrlPointers[odsCode];
   if (!nrlPointerTypes) {
-    //This will trigger RaiseFault.400NoPointers.xml - see targets/target.xml
+    //This will trigger RaiseFault.400NoPointers.xml - see targets/sandbox.xml
     return;
   }
 
