@@ -1,10 +1,8 @@
 (function () {
   const nrlAppID = context.getVariable("app.nrl-app-id");
   if (nrlAppID) {
-    context.targetRequest.headers["NHSD-NRL-App-ID"] = nrlAppID;
+    context.targetRequest.headers["X-Proxygen-App-NRL-App-ID"] = nrlAppID;
+  } else {
+    context.targetRequest.headers["X-Proxygen-App-NRL-App-ID"] = "NotProvided";
   }
-  else {
-    context.targetRequest.headers["NHSD-NRL-App-ID"] = "NotProvided";
-  }
-
 })();
