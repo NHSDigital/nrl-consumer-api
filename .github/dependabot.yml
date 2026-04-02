@@ -14,7 +14,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      intervale: "weekly"
+      interval: "weekly"
     commit-message:
       prefix: "npm"
     open-pull-request-limit: 10
